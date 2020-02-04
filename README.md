@@ -1,7 +1,7 @@
 # Android-Progress-Dialog
 [![](https://jitpack.io/v/mahdizareeii/Android-Progress-Dialog.svg)](https://jitpack.io/#mahdizareeii/Android-Progress-Dialog)
 
-step 1 :
+step 1 : add the following codes in 'build.gradle(Project: yourproject)'
 
     allprojects {
       repositories {
@@ -10,14 +10,14 @@ step 1 :
       }
     }
     
-step 2 :
+step 2 : add the following codes in 'build.gradle(Madule: app)'
 
     dependencies {
             implementation 'com.github.mahdizareeii:Android-Progress-Dialog:1.0'
     }
     
 
-step 3 :
+step 3 : how to use
      
      //get instance of ProgressDialog 
      ProgressDialog mzProgressDialog = new ProgressDialog(MainActivity.this);
