@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ProgressDialog</string>
+    <string name="cancel">Cancel</string>
+    <string name="please_wait_until_download_ended">Please wait until download ended</string>
+</resources>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dialogBackground"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/darkBlue2"
+    android:layoutDirection="ltr"
+    android:orientation="vertical"
+    tools:targetApi="jelly_bean_mr1">
+
+    <TextView
+        android:id="@+id/dialogTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:text="@string/app_name"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/dialogDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:text="@string/please_wait_until_download_ended"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+    <ProgressBar
+        android:id="@+id/dialogProgressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:progress="50" />
+
+    <Button
+        android:id="@+id/dialogCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:background="@color/yellow"
+        android:text="@string/cancel"
+        android:textAllCaps="false"
+        android:textColor="@color/darkBlue"
+        android:textSize="16sp" />
+
+</LinearLayout>
