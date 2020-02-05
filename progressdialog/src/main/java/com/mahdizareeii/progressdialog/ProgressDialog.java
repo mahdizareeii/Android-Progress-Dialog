@@ -3,6 +3,7 @@ package com.mahdizareeii.progressdialog;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +24,7 @@ public class ProgressDialog implements InterfaceProgressDialog {
     private LinearLayout dialogBackground;
     private TextView dialogTitle, dialogDescription;
     private ProgressBar dialogProgressBar;
-    private Button dialogCancel;
+    private Button dialogCancelButton;
     private Activity activity;
 
     public ProgressDialog(@NonNull Activity activity) {
@@ -37,7 +38,7 @@ public class ProgressDialog implements InterfaceProgressDialog {
         dialogTitle = view.findViewById(R.id.dialogTitle);
         dialogDescription = view.findViewById(R.id.dialogDescription);
         dialogProgressBar = view.findViewById(R.id.dialogProgressBar);
-        dialogCancel = view.findViewById(R.id.dialogCancel);
+        dialogCancelButton = view.findViewById(R.id.dialogCancelButton);
     }
 
     private void initAction() {
@@ -49,26 +50,35 @@ public class ProgressDialog implements InterfaceProgressDialog {
             dialogTitle.setTextColor(model.getTitleColor());
         if (model.getDescription() != null)
             dialogDescription.setText(model.getDescription());
+        if (model.getTypeface() != null)
+            setTypeFaceForElements(model.getTypeface());
         if (model.getDescriptionColor() != null)
             dialogDescription.setTextColor(model.getDescriptionColor());
         if (model.getProgressBarMax() != null)
             dialogProgressBar.setMax(model.getProgressBarMax());
         if (model.getCancelText() != null)
-            dialogCancel.setText(model.getCancelText());
+            dialogCancelButton.setText(model.getCancelText());
         if (model.getCancelBackgroundColor() != null)
-            dialogCancel.setBackgroundColor(model.getCancelBackgroundColor());
+            dialogCancelButton.setBackgroundColor(model.getCancelBackgroundColor());
 
-        dialogCancel.setOnClickListener(new View.OnClickListener() {
+        dialogCancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.dismiss();
+                if (dialog != null && dialog.isShowing())
+                    dialog.dismiss();
             }
         });
 
     }
 
+    private void setTypeFaceForElements(Typeface typeFace) {
+        dialogTitle.setTypeface(typeFace);
+        dialogDescription.setTypeface(typeFace);
+        dialogCancelButton.setTypeface(typeFace);
+    }
+
     @Override
-    public ProgressDialog setCancelableProgressDialog(boolean cancelable) {
+    public ProgressDialog setCancelable(boolean cancelable) {
         dialog.setCancelable(cancelable);
         return this;
     }
@@ -104,25 +114,31 @@ public class ProgressDialog implements InterfaceProgressDialog {
     }
 
     @Override
+    public ProgressDialog setTypeFace(Typeface typeFace) {
+        model.setTypeface(typeFace);
+        return this;
+    }
+
+    @Override
     public ProgressDialog setProgressBarMax(int max) {
         model.setProgressBarMax(max);
         return this;
     }
 
     @Override
-    public ProgressDialog setCancelTitle(String text) {
+    public ProgressDialog setCancelButtonTitle(String text) {
         model.setCancelText(text);
         return this;
     }
 
     @Override
-    public ProgressDialog setCancelBackgroundColor(int color) {
+    public ProgressDialog setCancelButtonBackgroundColor(int color) {
         model.setCancelBackgroundColor(color);
         return this;
     }
 
     @Override
-    public ProgressDialog setOnProgressDialogDismissListener(final OnProgressDialogDismissListener onProgressDialogDismissListener) {
+    public ProgressDialog setOnDismissListener(final OnProgressDialogDismissListener onProgressDialogDismissListener) {
         dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialog) {
@@ -140,6 +156,13 @@ public class ProgressDialog implements InterfaceProgressDialog {
         initAction();
         dialog.setContentView(view);
         dialog.show();
+        return this;
+    }
+
+    @Override
+    public ProgressDialog dismiss() {
+        if (dialog != null && dialog.isShowing())
+            dialog.dismiss();
         return this;
     }
 

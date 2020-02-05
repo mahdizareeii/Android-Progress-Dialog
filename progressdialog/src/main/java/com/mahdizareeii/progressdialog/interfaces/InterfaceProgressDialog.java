@@ -1,10 +1,12 @@
 package com.mahdizareeii.progressdialog.interfaces;
 
+import android.graphics.Typeface;
+
 import com.mahdizareeii.progressdialog.ProgressDialog;
 
 public interface InterfaceProgressDialog {
 
-    ProgressDialog setCancelableProgressDialog(boolean cancelable);
+    ProgressDialog setCancelable(boolean cancelable);
 
     ProgressDialog setBackgroundColor(int color);
 
@@ -16,15 +18,19 @@ public interface InterfaceProgressDialog {
 
     ProgressDialog setDescriptionColor(int color);
 
+    ProgressDialog setTypeFace(Typeface typeface);
+
     ProgressDialog setProgressBarMax(int max);
 
-    ProgressDialog setCancelTitle(String text);
+    ProgressDialog setCancelButtonTitle(String text);
 
-    ProgressDialog setCancelBackgroundColor(int color);
+    ProgressDialog setCancelButtonBackgroundColor(int color);
 
-    ProgressDialog setOnProgressDialogDismissListener(OnProgressDialogDismissListener listener);
+    ProgressDialog setOnDismissListener(OnProgressDialogDismissListener listener);
 
     ProgressDialog show();
+
+    ProgressDialog dismiss();
 
     void setProgressBarProgress(int progress);
 }

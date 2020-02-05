@@ -1,5 +1,6 @@
 package com.mahdizareeii.progressdialog;
 
+import android.graphics.Typeface;
 import android.view.View;
 
 public class ProgressDialogModel {
@@ -8,6 +9,7 @@ public class ProgressDialogModel {
     private String title;
     private Integer titleColor;
     private String description;
+    private Typeface typeface;
     private Integer descriptionColor;
     private Integer progressBarMax;
     private String cancelText;
@@ -15,17 +17,6 @@ public class ProgressDialogModel {
 
     public ProgressDialogModel() {
 
-    }
-
-    public ProgressDialogModel(Integer backgroundColor, String title, Integer titleColor, String description, Integer descriptionColor, Integer progressBarMax, String cancelText, Integer cancelBackgroundColor) {
-        this.backgroundColor = backgroundColor;
-        this.title = title;
-        this.titleColor = titleColor;
-        this.description = description;
-        this.descriptionColor = descriptionColor;
-        this.progressBarMax = progressBarMax;
-        this.cancelText = cancelText;
-        this.cancelBackgroundColor = cancelBackgroundColor;
     }
 
     public Integer getBackgroundColor() {
@@ -58,6 +49,14 @@ public class ProgressDialogModel {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Typeface getTypeface() {
+        return typeface;
+    }
+
+    public void setTypeface(Typeface typeface) {
+        this.typeface = typeface;
     }
 
     public Integer getDescriptionColor() {

@@ -1,5 +1,6 @@
 package com.sample.progressdialog;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -32,16 +33,17 @@ public class MainActivity extends AppCompatActivity {
         mzProgressDialog = new ProgressDialog(MainActivity.this);
 
         mzProgressDialog
-                .setCancelableProgressDialog(false)
+                .setCancelable(false)
                 .setBackgroundColor(getResources().getColor(R.color.darkBlue2))
                 .setTitle("Hello Dialog")
                 .setTitleColor(getResources().getColor(R.color.white))
                 .setDescription("Download starting")
                 .setDescriptionColor(getResources().getColor(R.color.white))
+                .setTypeFace(Typeface.createFromAsset(getAssets(), "sans.ttf"))
                 .setProgressBarMax(100)
-                .setCancelTitle("Cancel Download")
-                .setCancelBackgroundColor(getResources().getColor(R.color.yellow))
-                .setOnProgressDialogDismissListener(new OnProgressDialogDismissListener() {
+                .setCancelButtonTitle("Cancel Download")
+                .setCancelButtonBackgroundColor(getResources().getColor(R.color.yellow))
+                .setOnDismissListener(new OnProgressDialogDismissListener() {
                     @Override
                     public void onDismiss() {
                         Toast.makeText(MainActivity.this, "Dismissed", Toast.LENGTH_SHORT).show();
