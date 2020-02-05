@@ -13,7 +13,7 @@ step 1 : add the following codes in 'build.gradle(Project: yourproject)'
 step 2 : add the following codes in 'build.gradle(Madule: app)'
 
     dependencies {
-            implementation 'com.github.mahdizareeii:Android-Progress-Dialog:1.0'
+            implementation 'com.github.mahdizareeii:Android-Progress-Dialog:1.1'
     }
     
 
@@ -24,16 +24,17 @@ step 3 : how to use
 
      //apply settings and show
      mzProgressDialog
-                .setCancelableProgressDialog(false)
+                .setCancelable(false)
                 .setBackgroundColor(getResources().getColor(R.color.darkBlue2))
                 .setTitle("Hello Dialog")
                 .setTitleColor(getResources().getColor(R.color.white))
                 .setDescription("Download starting")
                 .setDescriptionColor(getResources().getColor(R.color.white))
+                .setTypeFace(Typeface.createFromAsset(getAssets(), "sans.ttf"))
                 .setProgressBarMax(100)
-                .setCancelTitle("Cancel Download")
-                .setCancelBackgroundColor(getResources().getColor(R.color.yellow))
-                .setOnProgressDialogDismissListener(new OnProgressDialogDismissListener() {
+                .setCancelButtonTitle("Cancel Download")
+                .setCancelButtonBackgroundColor(getResources().getColor(R.color.yellow))
+                .setOnDismissListener(new OnProgressDialogDismissListener() {
                     @Override
                     public void onDismiss() {
                         Toast.makeText(MainActivity.this, "Dismissed", Toast.LENGTH_SHORT).show();
