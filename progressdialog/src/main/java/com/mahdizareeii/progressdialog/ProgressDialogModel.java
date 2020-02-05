@@ -1,7 +1,8 @@
 package com.mahdizareeii.progressdialog;
 
 import android.graphics.Typeface;
-import android.view.View;
+
+import com.mahdizareeii.progressdialog.interfaces.OnCancelButtonClickListener;
 
 public class ProgressDialogModel {
 
@@ -14,10 +15,7 @@ public class ProgressDialogModel {
     private Integer progressBarMax;
     private String cancelText;
     private Integer cancelBackgroundColor;
-
-    public ProgressDialogModel() {
-
-    }
+    private OnCancelButtonClickListener onCancelButtonClickListener;
 
     public Integer getBackgroundColor() {
         return backgroundColor;
@@ -89,5 +87,13 @@ public class ProgressDialogModel {
 
     public void setCancelBackgroundColor(Integer cancelBackgroundColor) {
         this.cancelBackgroundColor = cancelBackgroundColor;
+    }
+
+    public OnCancelButtonClickListener getOnCancelButtonClickListener() {
+        return onCancelButtonClickListener;
+    }
+
+    public void setOnCancelButtonClickListener(OnCancelButtonClickListener onCancelButtonClickListener) {
+        this.onCancelButtonClickListener = onCancelButtonClickListener;
     }
 }

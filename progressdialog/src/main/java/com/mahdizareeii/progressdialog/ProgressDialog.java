@@ -15,6 +15,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.mahdizareeii.progressdialog.interfaces.InterfaceProgressDialog;
+import com.mahdizareeii.progressdialog.interfaces.OnCancelButtonClickListener;
 import com.mahdizareeii.progressdialog.interfaces.OnProgressDialogDismissListener;
 
 public class ProgressDialog implements InterfaceProgressDialog {
@@ -64,8 +65,10 @@ public class ProgressDialog implements InterfaceProgressDialog {
         dialogCancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (dialog != null && dialog.isShowing())
+                if (dialog != null && dialog.isShowing()) {
+                    model.getOnCancelButtonClickListener().onClick();
                     dialog.dismiss();
+                }
             }
         });
 
@@ -134,6 +137,12 @@ public class ProgressDialog implements InterfaceProgressDialog {
     @Override
     public ProgressDialog setCancelButtonBackgroundColor(int color) {
         model.setCancelBackgroundColor(color);
+        return this;
+    }
+
+    @Override
+    public ProgressDialog setOnCancelButtonClickListener(OnCancelButtonClickListener onCancelButtonClickListener) {
+        model.setOnCancelButtonClickListener(onCancelButtonClickListener);
         return this;
     }
 

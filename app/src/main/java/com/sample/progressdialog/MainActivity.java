@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.mahdizareeii.progressdialog.ProgressDialog;
+import com.mahdizareeii.progressdialog.interfaces.OnCancelButtonClickListener;
 import com.mahdizareeii.progressdialog.interfaces.OnProgressDialogDismissListener;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         mzProgressDialog = new ProgressDialog(MainActivity.this);
 
         mzProgressDialog
-                .setCancelable(false)
+                .setCancelable(true)
                 .setBackgroundColor(getResources().getColor(R.color.darkBlue2))
                 .setTitle("Hello Dialog")
                 .setTitleColor(getResources().getColor(R.color.white))
@@ -43,15 +44,13 @@ public class MainActivity extends AppCompatActivity {
                 .setProgressBarMax(100)
                 .setCancelButtonTitle("Cancel Download")
                 .setCancelButtonBackgroundColor(getResources().getColor(R.color.yellow))
-                .setOnDismissListener(new OnProgressDialogDismissListener() {
+                .setOnCancelButtonClickListener(new OnCancelButtonClickListener() {
                     @Override
-                    public void onDismiss() {
-                        Toast.makeText(MainActivity.this, "Dismissed", Toast.LENGTH_SHORT).show();
+                    public void onClick() {
+                        Toast.makeText(MainActivity.this, "Canceled", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .show();
-
-        mzProgressDialog.setProgressBarProgress(12);
     }
 
 }

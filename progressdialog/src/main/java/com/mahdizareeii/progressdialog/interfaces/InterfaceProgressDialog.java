@@ -26,6 +26,8 @@ public interface InterfaceProgressDialog {
 
     ProgressDialog setCancelButtonBackgroundColor(int color);
 
+    ProgressDialog setOnCancelButtonClickListener(OnCancelButtonClickListener onCancelButtonClickListener);
+
     ProgressDialog setOnDismissListener(OnProgressDialogDismissListener listener);
 
     ProgressDialog show();
