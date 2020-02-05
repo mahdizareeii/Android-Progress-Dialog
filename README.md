@@ -13,7 +13,7 @@ step 1 : add the following codes in 'build.gradle(Project: yourproject)'
 step 2 : add the following codes in 'build.gradle(Madule: app)'
 
     dependencies {
-            implementation 'com.github.mahdizareeii:Android-Progress-Dialog:1.1'
+            implementation 'com.github.mahdizareeii:Android-Progress-Dialog:1.2'
     }
     
 
