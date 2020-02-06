@@ -24,7 +24,7 @@ public class ProgressDialog implements InterfaceProgressDialog {
     private ProgressDialogModel model;
     private LinearLayout dialogBackground;
     private TextView dialogTitle, dialogDescription;
-    private ProgressBar dialogProgressBar;
+    private ProgressBar dialogProgressBar, dialogProgressCircle;
     private Button dialogCancelButton;
     private Activity activity;
 
@@ -39,6 +39,7 @@ public class ProgressDialog implements InterfaceProgressDialog {
         dialogTitle = view.findViewById(R.id.dialogTitle);
         dialogDescription = view.findViewById(R.id.dialogDescription);
         dialogProgressBar = view.findViewById(R.id.dialogProgressBar);
+        dialogProgressCircle = view.findViewById(R.id.dialogProgressCircle);
         dialogCancelButton = view.findViewById(R.id.dialogCancelButton);
     }
 
@@ -61,6 +62,12 @@ public class ProgressDialog implements InterfaceProgressDialog {
             dialogCancelButton.setText(model.getCancelText());
         if (model.getCancelBackgroundColor() != null)
             dialogCancelButton.setBackgroundColor(model.getCancelBackgroundColor());
+        if (model.isCircleProgress()) {
+            if (dialogProgressBar.getVisibility() == View.VISIBLE)
+                dialogProgressBar.setVisibility(View.GONE);
+            if (dialogProgressCircle.getVisibility() == View.GONE)
+                dialogProgressCircle.setVisibility(View.VISIBLE);
+        }
 
         dialogCancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,6 +132,12 @@ public class ProgressDialog implements InterfaceProgressDialog {
     @Override
     public ProgressDialog setProgressBarMax(int max) {
         model.setProgressBarMax(max);
+        return this;
+    }
+
+    @Override
+    public ProgressDialog setIsCircleProgress(boolean isCircleProgress) {
+        model.setCircleProgress(isCircleProgress);
         return this;
     }
 

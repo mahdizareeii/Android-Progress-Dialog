@@ -37,7 +37,15 @@
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"/>
+        android:layout_margin="10dp" />
+
+    <ProgressBar
+        android:id="@+id/dialogProgressCircle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/dialogCancelButton"
@@ -49,6 +57,6 @@
         android:text="@string/cancel"
         android:textAllCaps="false"
         android:textColor="@color/darkBlue"
-        android:textSize="16sp" />
+        android:textSize="14sp" />
 
 </LinearLayout>
