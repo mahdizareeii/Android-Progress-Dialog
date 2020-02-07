@@ -24,6 +24,8 @@ public interface InterfaceProgressDialog {
 
     ProgressDialog setIsCircleProgress(boolean isCircleProgress);
 
+    ProgressDialog setJustDialog(boolean isJustDialog);
+
     ProgressDialog setCancelButtonTitle(String text);
 
     ProgressDialog setCancelButtonBackgroundColor(int color);

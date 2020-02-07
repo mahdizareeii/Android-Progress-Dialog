@@ -13,6 +13,7 @@ public class ProgressDialogModel {
     private Typeface typeface;
     private Integer descriptionColor;
     private boolean isCircleProgress;
+    private boolean isJustDialog;
     private Integer progressBarMax;
     private String cancelText;
     private Integer cancelBackgroundColor;
@@ -72,6 +73,14 @@ public class ProgressDialogModel {
 
     public void setCircleProgress(boolean circleProgress) {
         isCircleProgress = circleProgress;
+    }
+
+    public boolean isJustDialog() {
+        return isJustDialog;
+    }
+
+    public void setJustDialog(boolean justDialog) {
+        isJustDialog = justDialog;
     }
 
     public Integer getProgressBarMax() {

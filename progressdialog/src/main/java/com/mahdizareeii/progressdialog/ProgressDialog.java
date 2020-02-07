@@ -68,6 +68,12 @@ public class ProgressDialog implements InterfaceProgressDialog {
             if (dialogProgressCircle.getVisibility() == View.GONE)
                 dialogProgressCircle.setVisibility(View.VISIBLE);
         }
+        if (model.isJustDialog()) {
+            if (dialogProgressBar.getVisibility() == View.VISIBLE)
+                dialogProgressBar.setVisibility(View.GONE);
+            if (dialogProgressCircle.getVisibility() == View.VISIBLE)
+                dialogProgressCircle.setVisibility(View.GONE);
+        }
 
         dialogCancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,6 +144,12 @@ public class ProgressDialog implements InterfaceProgressDialog {
     @Override
     public ProgressDialog setIsCircleProgress(boolean isCircleProgress) {
         model.setCircleProgress(isCircleProgress);
+        return this;
+    }
+
+    @Override
+    public ProgressDialog setJustDialog(boolean isJustDialog) {
+        model.setJustDialog(isJustDialog);
         return this;
     }
 
